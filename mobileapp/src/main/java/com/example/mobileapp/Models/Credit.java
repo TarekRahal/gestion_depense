@@ -21,13 +21,42 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 public class Credit implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "revenu_seq")
-    @SequenceGenerator(name = "revenu_seq", sequenceName = "revenu_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "credit_seq")
+    @SequenceGenerator(name = "credit_seq", sequenceName = "credit_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "revenuId")
     @JsonBackReference
     private Revenu revenu;
+
+
+    /**
+     * @return Long return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return Revenu return the revenu
+     */
+    public Revenu getRevenu() {
+        return revenu;
+    }
+
+    /**
+     * @param revenu the revenu to set
+     */
+    public void setRevenu(Revenu revenu) {
+        this.revenu = revenu;
+    }
 
 }

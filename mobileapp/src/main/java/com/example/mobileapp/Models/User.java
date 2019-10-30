@@ -22,6 +22,7 @@ public class User implements Serializable {
     private String email;
     private Date datenaissance;
     private Long objectif;
+    private String devise;
     private String password;
     private Double compte;
 
@@ -139,6 +140,21 @@ public class User implements Serializable {
      */
     public void setCompte(Double compte) {
         this.compte = compte;
+    }
+
+
+    /**
+     * @return String return the devise
+     */
+    public String getDevise() {
+        return devise;
+    }
+
+    /**
+     * @param devise the devise to set
+     */
+    public void setDevise(String devise) {
+        this.devise = devise;
     }
 
 }
