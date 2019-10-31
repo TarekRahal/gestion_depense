@@ -32,7 +32,11 @@ public class UserController {
 		return new User("User successfully authenticated");
 	}
 
-
+  @PostMapping
+  public User create(@RequestBody User user) {
+      userrep.save(user);
+      return user;
+  }
 
 
 

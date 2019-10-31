@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.mobileapp.Repositories.RevenuRepository;
+import com.example.mobileapp.Repositories.UserRepository;
 import com.example.mobileapp.Models.*;
 
 @CrossOrigin()
@@ -23,7 +24,18 @@ import com.example.mobileapp.Models.*;
 @RequestMapping({ "/revenus" })
 public class RevenuController {
 	@Autowired
-	private RevenuRepository revenurep;
+  private RevenuRepository revenurep;
+  @Autowired
+  private UserRepository userrep;
+
+
+  @PostMapping
+    public Revenu create(@RequestBody Revenu revenu, @RequestBody User user) {
+      revenurep.save(revenu);
+      user.setCompte(revenu.getValeur() + user.getCompte());
+      userrep.save(user);
+      return revenu;
+    }
 
 
 }
