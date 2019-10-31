@@ -23,5 +23,9 @@ import com.example.mobileapp.Models.*;
 @RequestMapping({ "/depenses" })
 public class DepenseController {
 	@Autowired
-	private DepenseRepository depenserep;
+  private DepenseRepository depenserep;
+
+
+
+
 }
