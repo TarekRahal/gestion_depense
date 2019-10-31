@@ -25,7 +25,23 @@ public class User implements Serializable {
     private String devise;
     private String password;
     private Double compte;
+    private String status;
 
+public User(String nom, String prenom, String email, Date datenaissance, Long objectif,
+String devise, String password, Double compte){
+  this.nom=nom;
+  this.prenom=prenom;
+  this.email=email;
+  this.datenaissance=datenaissance;
+  this.objectif=objectif;
+  this.devise=devise;
+  this.password=password;
+  this.compte=compte;
+
+}
+public User(String status){
+this.status=status;
+}
 
     /**
      * @return Long return the id
@@ -155,6 +171,21 @@ public class User implements Serializable {
      */
     public void setDevise(String devise) {
         this.devise = devise;
+    }
+
+
+    /**
+     * @return String return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
