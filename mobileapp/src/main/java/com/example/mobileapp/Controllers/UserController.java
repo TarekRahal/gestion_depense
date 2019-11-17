@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.example.mobileapp.Repositories.UserRepository;
+import com.example.mobileapp.Repositories.User_rolesRepository;
+import com.example.mobileapp.Models.Users_roles;
 import com.example.mobileapp.Models.*;
 
 @CrossOrigin()
@@ -24,20 +27,30 @@ import com.example.mobileapp.Models.*;
 public class UserController {
 	@Autowired
 	private UserRepository userrep;
-
+  @Autowired
+  private User_rolesRepository userrole;
 
 	@GetMapping(produces = "application/json")
 	@RequestMapping({ "/validateLogin" })
 	public User validateLogin() {
 		return new User("User successfully authenticated");
-	}
+  }
+
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
   @PostMapping
   public User create(@RequestBody User user) {
-      userrep.save(user);
+
+      String role = "user";
+
+    String pass = bCryptPasswordEncoder.encode(user.getPassword());
+    user.setPassword(pass);
+    user.setStatus("1");
+    userrole.save(new Users_roles(user.getEmail(),role));
+    userrep.save(user);
       return user;
   }
-
 
 
 

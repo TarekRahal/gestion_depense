@@ -33,7 +33,7 @@ public class DepenseController {
   @PostMapping
     public Depense create(@RequestBody Depense depense, @RequestBody User user) {
       depenserep.save(depense);
-      user.setCompte(depense.getValeur() - user.getCompte());
+      user.setCompte(user.getCompte() - depense.getValeur() );
       userrep.save(user);
       return depense;
     }
