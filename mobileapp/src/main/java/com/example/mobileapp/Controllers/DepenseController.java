@@ -44,6 +44,13 @@ public class DepenseController {
       userrep.save(user);
       return depense;
     }
+    @PostMapping
+    public Depense delete(@RequestBody Depense depense, @RequestBody User user) {
 
+      user.setCompte(user.getCompte() + depense.getValeur()  );
+      depenserep.delete(depense);
+      userrep.save(user);
+      return depense;
+    }
 
 }
