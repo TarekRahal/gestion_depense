@@ -27,6 +27,11 @@ public class RevenuController {
   private RevenuRepository revenurep;
   @Autowired
   private UserRepository userrep;
+  @GetMapping(produces = "application/json")
+  public List<Revenu> firstPage() {
+      List<Revenu> revenus = revenurep.findAll();
+      return revenus;
+  }
 
 
   @PostMapping
