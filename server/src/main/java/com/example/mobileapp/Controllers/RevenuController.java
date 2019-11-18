@@ -28,6 +28,12 @@ public class RevenuController {
   @Autowired
   private UserRepository userrep;
 
+  @GetMapping(produces = "application/json")
+  public List<Revenu> firstPage() {
+      List<Revenu> revenus = revenurep.findAll();
+      return revenus;
+  }
+
 
   @PostMapping
     public Revenu create(@RequestBody Revenu revenu, @RequestBody User user) {
@@ -36,6 +42,13 @@ public class RevenuController {
       userrep.save(user);
       return revenu;
     }
-
+@PostMapping
+    public Revenu delete(@RequestBody Revenu revenu, @RequestBody User user) {
+      
+      user.setCompte(user.getCompte() - revenu.getValeur()  );
+      revenurep.delete(revenu);
+      userrep.save(user);
+      return revenu;
+    }
 
 }

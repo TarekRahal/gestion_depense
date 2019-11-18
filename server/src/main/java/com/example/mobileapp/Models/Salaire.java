@@ -31,6 +31,10 @@ public class Salaire implements Serializable {
     private Revenu revenu;
 
 
+    public Salaire(String travail){
+      this.travail=travail;
+    }
+
     /**
      * @return Long return the id
      */

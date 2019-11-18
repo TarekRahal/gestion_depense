@@ -30,13 +30,27 @@ public class DepenseController {
   private UserRepository userrep;
 
 
+
+  @GetMapping(produces = "application/json")
+  public List<Depense> firstPage() {
+      List<Depense> depenses = depenserep.findAll();
+      return depenses;
+  }
+
   @PostMapping
     public Depense create(@RequestBody Depense depense, @RequestBody User user) {
       depenserep.save(depense);
-      user.setCompte(depense.getValeur() - user.getCompte());
+      user.setCompte(user.getCompte() - depense.getValeur() );
       userrep.save(user);
       return depense;
     }
+    @PostMapping
+    public Depense delete(@RequestBody Depense depense, @RequestBody User user) {
 
+      user.setCompte(user.getCompte() + depense.getValeur()  );
+      depenserep.delete(depense);
+      userrep.save(user);
+      return depense;
+    }
 
 }

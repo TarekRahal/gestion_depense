@@ -32,7 +32,10 @@ public class Revenu implements Serializable {
     @OneToMany(mappedBy = "revenu", cascade = CascadeType.ALL)
     private Set<Salaire> salaire;
 
-
+public Revenu(Double valeur, Date date){
+  this.valeur=valeur;
+  this.date=date;
+}
 
     /**
      * @return Long return the id
