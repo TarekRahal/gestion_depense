@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 
@@ -21,7 +25,10 @@ public class Depense implements Serializable {
     private Double valeur;
     private Date date;
     private String description;
-
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    @JsonBackReference
+    private User user;
 
 public Depense (String categorie, Double valeur, Date date, String description){
   this.categorie=categorie;
@@ -101,6 +108,21 @@ public Depense (String categorie, Double valeur, Date date, String description){
      */
     public void setValeur(Double valeur) {
         this.valeur = valeur;
+    }
+
+
+    /**
+     * @return User return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

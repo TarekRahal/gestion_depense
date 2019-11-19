@@ -2,11 +2,14 @@ package com.example.mobileapp.Models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
@@ -26,6 +29,14 @@ public class User implements Serializable {
     private String password;
     private Double compte;
     private String status;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Depense> depense;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Revenu> revenu;
+
 
 public User(String nom, String prenom, String email, Date datenaissance, Long objectif,
 String devise, String password, Double compte){
@@ -186,6 +197,35 @@ this.status=status;
      */
     public void setStatus(String status) {
         this.status = status;
+    }
+
+
+    /**
+     * @return Set<Depense> return the depense
+     */
+    public Set<Depense> getDepense() {
+        return depense;
+    }
+
+    /**
+     * @param depense the depense to set
+     */
+    public void setDepense(Set<Depense> depense) {
+        this.depense = depense;
+    }
+
+    /**
+     * @return Set<Revenu> return the revenu
+     */
+    public Set<Revenu> getRevenu() {
+        return revenu;
+    }
+
+    /**
+     * @param revenu the revenu to set
+     */
+    public void setRevenu(Set<Revenu> revenu) {
+        this.revenu = revenu;
     }
 
 }

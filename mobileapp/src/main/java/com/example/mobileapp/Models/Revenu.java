@@ -9,9 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 
@@ -31,6 +35,11 @@ public class Revenu implements Serializable {
 
     @OneToMany(mappedBy = "revenu", cascade = CascadeType.ALL)
     private Set<Salaire> salaire;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    @JsonBackReference
+    private User user;
 
 public Revenu(Double valeur, Date date){
   this.valeur=valeur;
@@ -106,6 +115,35 @@ public Revenu(Double valeur, Date date){
      */
     public void setCredit(Set<Credit> credit) {
         this.credit = credit;
+    }
+
+
+    /**
+     * @return Set<Salaire> return the salaire
+     */
+    public Set<Salaire> getSalaire() {
+        return salaire;
+    }
+
+    /**
+     * @param salaire the salaire to set
+     */
+    public void setSalaire(Set<Salaire> salaire) {
+        this.salaire = salaire;
+    }
+
+    /**
+     * @return User return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }
