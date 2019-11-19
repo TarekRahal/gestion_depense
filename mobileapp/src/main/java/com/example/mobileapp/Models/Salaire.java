@@ -29,7 +29,9 @@ public class Salaire implements Serializable {
     @JoinColumn(name = "revenuId")
     @JsonBackReference
     private Revenu revenu;
+public Salaire(){
 
+}
 
     public Salaire(String travail){
       this.travail=travail;

@@ -37,12 +37,15 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Revenu> revenu;
+public User(){
 
+}
 
 public User(String nom,String username, String prenom, String email, Date datenaissance, Long objectif,
 String devise, String password, Double compte, String status){
   this.nom=nom;
   this.prenom=prenom;
+
   this.username=username;
   this.email=email;
   this.datenaissance=datenaissance;
