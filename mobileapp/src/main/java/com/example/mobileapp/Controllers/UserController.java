@@ -35,18 +35,12 @@ public class UserController {
 	public User validateLogin() {
 		return new User("User successfully authenticated");
   }
-
+/*
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-  /*@GetMapping(produces = "application/json")
-	@RequestMapping({ "/Login" })
-	public User Login() {
-		return new User("User successfully authenticated");
-	}*/
-
-  @PostMapping
+ @PostMapping
   public User create(@RequestBody User user) {
 
       String role = "user";
@@ -59,6 +53,6 @@ public class UserController {
       return user;
   }
 
-
+*/
 
 }
