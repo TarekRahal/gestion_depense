@@ -42,13 +42,6 @@ public class RevenuController {
       userrep.save(user);
       return revenu;
     }
-@PostMapping
-    public Revenu delete(@RequestBody Revenu revenu, @RequestBody User user) {
-      
-      user.setCompte(user.getCompte() - revenu.getValeur()  );
-      revenurep.delete(revenu);
-      userrep.save(user);
-      return revenu;
-    }
+
 
 }
