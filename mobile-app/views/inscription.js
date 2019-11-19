@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, KeyboardAvoidingView } from 'react-native';
 
 import Styles from '../styles/styles';
 import userService from '../services/user-service';
@@ -25,7 +25,7 @@ export default class Inscription extends Component {
 
     render() {
         return (
-            <View>
+            <KeyboardAvoidingView>
                 <View>
                     <Text style={Styles.label}>Nom</Text>
                     <TextInput
@@ -69,7 +69,7 @@ export default class Inscription extends Component {
                     onPress={() => {userService.inscription(this.state.user);}}
                     title="Inscription"
                 />
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
