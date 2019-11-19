@@ -39,6 +39,13 @@ public class UserController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+
+  /*@GetMapping(produces = "application/json")
+	@RequestMapping({ "/Login" })
+	public User Login() {
+		return new User("User successfully authenticated");
+	}*/
+
   @PostMapping
   public User create(@RequestBody User user) {
 
