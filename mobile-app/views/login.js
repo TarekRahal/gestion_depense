@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, KeyboardAvoidingView } from 'react-native';
 
 import UserService from '../services/user-service';
 
@@ -23,7 +23,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View style={Styles.container}>
+            <KeyboardAvoidingView style={Styles.container}>
                 <View>
                     <Text style={Styles.label}>Email/Nom d'utilisateur</Text>
                     <TextInput
@@ -62,7 +62,7 @@ export default class Login extends Component {
                     onPress={() => {this.props.navigation.push("Inscription")}}
                     style={Styles.anchor}
                 >Insciption</Text>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
