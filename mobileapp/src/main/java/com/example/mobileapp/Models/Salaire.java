@@ -21,10 +21,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 public class Salaire implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "credit_seq")
-    @SequenceGenerator(name = "credit_seq", sequenceName = "credit_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "salaire_seq")
+    @SequenceGenerator(name = "salaire_seq", sequenceName = "salaire_seq", allocationSize = 1)
     private Long id;
     private String travail;
+    private double total;
     @ManyToOne
     @JoinColumn(name = "revenuId")
     @JsonBackReference
@@ -33,8 +34,9 @@ public Salaire(){
 
 }
 
-    public Salaire(String travail){
+    public Salaire(String travail, Double total){
       this.travail=travail;
+      this.total=total;
     }
 
     /**
@@ -78,6 +80,21 @@ public Salaire(){
      */
     public void setTravail(String travail) {
         this.travail = travail;
+    }
+
+
+    /**
+     * @return double return the total
+     */
+    public double getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(double total) {
+        this.total = total;
     }
 
 }

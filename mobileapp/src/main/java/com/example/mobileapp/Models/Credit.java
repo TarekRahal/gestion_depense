@@ -24,13 +24,20 @@ public class Credit implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "credit_seq")
     @SequenceGenerator(name = "credit_seq", sequenceName = "credit_seq", allocationSize = 1)
     private Long id;
-
+    private Double total;
+    private String detail;
     @ManyToOne
     @JoinColumn(name = "revenuId")
     @JsonBackReference
     private Revenu revenu;
 
+public Credit(){
 
+}
+public Credit(Double total,String detail){
+  this.total=total;
+  this.detail=detail;
+}
     /**
      * @return Long return the id
      */

@@ -21,13 +21,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 public class Vente implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "revenu_seq")
-    @SequenceGenerator(name = "revenu_seq", sequenceName = "revenu_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vente_seq")
+    @SequenceGenerator(name = "vente_seq", sequenceName = "vente_seq", allocationSize = 1)
     private Long id;
-    private String typedevente;
-
-    public Vente(String typedevente){
-      this.typedevente=typedevente;
+    private String detaildevente;
+    private Double totalvente;
+    public Vente(String detaildevente, Double totalvente){
+      this.detaildevente=detaildevente;
+      this.totalvente=totalvente;
     }
 
     @ManyToOne
@@ -62,6 +63,35 @@ public class Vente implements Serializable {
      */
     public void setRevenu(Revenu revenu) {
         this.revenu = revenu;
+    }
+
+
+    /**
+     * @return String return the detaildevente
+     */
+    public String getDetaildevente() {
+        return detaildevente;
+    }
+
+    /**
+     * @param detaildevente the detaildevente to set
+     */
+    public void setDetaildevente(String detaildevente) {
+        this.detaildevente = detaildevente;
+    }
+
+    /**
+     * @return Double return the totalvente
+     */
+    public Double getTotalvente() {
+        return totalvente;
+    }
+
+    /**
+     * @param totalvente the totalvente to set
+     */
+    public void setTotalvente(Double totalvente) {
+        this.totalvente = totalvente;
     }
 
 }
