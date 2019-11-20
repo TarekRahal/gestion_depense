@@ -1,48 +1,49 @@
 import React from "react";
 import {
-StyleSheet,
-View,
-ActivityIndicator,
-FlatList,
-Text,
-TouchableOpacity
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  FlatList,
+  Text,
+  TouchableOpacity
 } from "react-native";
+
 export default class profileutilisateur extends React.Component {
 static navigationOptions = ({ navigation }) => {
-return {
-  title: "Source Listing",
-  headerStyle: {backgroundColor: "#fff"},
-  headerTitleStyle: {textAlign: "center",flex: 1}
- };
-};
-constructor(props) {
- super(props);
- this.state = {
-   loading: true,
-   dataSource:[]
+  return {
+    title: "Source Listing",
+    headerStyle: {backgroundColor: "#fff"},
+    headerTitleStyle: {textAlign: "center",flex: 1}
   };
-}
-componentDidMount(){
-fetch("http://localhost:3300/users")
-.then(response => response.json())
-.then((responseJson)=> {
-  this.setState({
-   loading: false,
-   dataSource: responseJson
+};
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      dataSource:[]
+      };
+  }
+  componentDidMount(){
+  fetch("http://localhost:3300/users")
+  .then(response => response.json())
+  .then((responseJson)=> {
+    this.setState({
+    loading: false,
+    dataSource: responseJson
+    })
   })
-})
-.catch(error=>console.log(error)) //to catch the errors if any
-}
-FlatListItemSeparator = () => {
-return (
-  <View style={{
-     height: .5,
-     width:"100%",
-     backgroundColor:"rgba(0,0,0,0.5)",
-}}
-/>
-);
-}
+  .catch(error=>console.log(error)) //to catch the errors if any
+  }
+  FlatListItemSeparator = () => {
+    return (
+      <View style={{
+          height: .5,
+          width:"100%",
+          backgroundColor:"rgba(0,0,0,0.5)",
+        }}
+      />
+    );
+  }
 renderItem=(data)=>
 
 <TouchableOpacity style={styles.list}>

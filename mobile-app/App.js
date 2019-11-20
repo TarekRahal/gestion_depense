@@ -7,11 +7,8 @@ import Inscription from './views/inscription';
 import Login from './views/login';
 import Home from './views/home';
 import Profile from './views/profile';
-import AjouterDepense from './views/ajouterDepense';
 import AjouterRevenu from './views/ajouterRevenu';
 import ModiferProfil from './views/modifierProfil';
-import DepenseParDate from './views/graph-depense-par-date';
-import DepenseParCategorie from './views/graph-depense-par-categorie';
 
 const AuthNavigator = createStackNavigator(
   {
@@ -23,7 +20,6 @@ const AuthNavigator = createStackNavigator(
 const HomeNavigator = createStackNavigator(
   {
     HomeScreen: {screen: Home},
-    AjouterDepense: {screen: AjouterDepense}
   },
   {
     defaultNavigationOptions: {
