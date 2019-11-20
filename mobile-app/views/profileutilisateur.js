@@ -23,7 +23,7 @@ constructor(props) {
   };
 }
 componentDidMount(){
-fetch("http://localhost:8080/users")
+fetch("http://localhost:3300/users")
 .then(response => response.json())
 .then((responseJson)=> {
   this.setState({
@@ -44,6 +44,7 @@ return (
 );
 }
 renderItem=(data)=>
+
 <TouchableOpacity style={styles.list}>
 <Text style={styles.lightText}>{data.item.nom}</Text>
 <Text style={styles.lightText}>{data.item.email}</Text>
