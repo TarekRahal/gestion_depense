@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import {
 StyleSheet,
 View,
@@ -7,10 +7,10 @@ FlatList,
 Text,
 TouchableOpacity
 } from "react-native";
-export default class profileutilisateur extends React.Component {
+export default class Profile extends React.Component {
 static navigationOptions = ({ navigation }) => {
 return {
-  title: "Source Listing",
+  title: "Profile",
   headerStyle: {backgroundColor: "#fff"},
   headerTitleStyle: {textAlign: "center",flex: 1}
  };
@@ -46,9 +46,9 @@ return (
 renderItem=(data)=>
 
 <TouchableOpacity style={styles.list}>
-<Text style={styles.lightText}>{data.item.nom}</Text>
-<Text style={styles.lightText}>{data.item.email}</Text>
-<Text style={styles.lightText}>{data.item.compte}</Text></TouchableOpacity>
+<Text style={styles.lightText}>{data.user.nom}</Text>
+<Text style={styles.lightText}>{data.user.email}</Text>
+<Text style={styles.lightText}>{data.user.compte}</Text></TouchableOpacity>
 render(){
  if(this.state.loading){
   return(
@@ -84,3 +84,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
    }
 });
+*/

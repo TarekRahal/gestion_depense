@@ -36,6 +36,13 @@ public class UserController {
 		return new User("User successfully authenticated");
   }
 
+
+  @GetMapping(produces = "application/json")
+  @RequestMapping({ "/getuser" })
+  public List<User> firstPage() {
+      List<User> users = userrep.findAll();
+      return users;
+  }
   @GetMapping(produces = "application/json")
   public User getuserbyid(@RequestBody Long id) {
       User user = userrep.getOne(id);
