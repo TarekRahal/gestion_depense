@@ -30,23 +30,25 @@ public class UserController {
   @Autowired
   private User_rolesRepository userrole;
 
-	@GetMapping(produces = "application/json")
+  @GetMapping(produces = "application/json")
 	@RequestMapping({ "/validateLogin" })
 	public User validateLogin() {
 		return new User("User successfully authenticated");
   }
 
+  @GetMapping(produces = "application/json")
+  public User getuserbyid(@RequestBody Long id) {
+      User user = userrep.getOne(id);
+      return user;
+  }
+
+
+/*
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-  /*@GetMapping(produces = "application/json")
-	@RequestMapping({ "/Login" })
-	public User Login() {
-		return new User("User successfully authenticated");
-	}*/
-
-  @PostMapping
+ @PostMapping
   public User create(@RequestBody User user) {
 
       String role = "user";
@@ -59,6 +61,6 @@ public class UserController {
       return user;
   }
 
-
+*/
 
 }

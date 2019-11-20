@@ -40,7 +40,9 @@ public class Revenu implements Serializable {
     @JoinColumn(name = "userId")
     @JsonBackReference
     private User user;
+public Revenu(){
 
+}
 public Revenu(Double valeur, Date date){
   this.valeur=valeur;
   this.date=date;
