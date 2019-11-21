@@ -26,7 +26,7 @@ export default class Login extends Component {
         .then((response) => response.json)
         .then((responseJson) => {
             this.props.navigation.replace("Home", {user: responseJson}, null);
-        }).catch((error) => { this.setState({errorMessage: error})});
+        }).catch((error) => { this.setState({errorMessage: error.message})});
     }
 
     render() {
@@ -56,7 +56,7 @@ export default class Login extends Component {
                 </View>
                 <Text style={Styles.error}>{this.state.errorMessage}</Text>
                 <Button
-                    onPress={this.login(this.state.login, this.state.password)}
+                    onPress={() => this.login(this.state.login, this.state.password)}
                     title="Connexion"
                 />
                 <Text
