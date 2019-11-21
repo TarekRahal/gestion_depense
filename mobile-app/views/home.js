@@ -34,7 +34,7 @@ export default class Home extends Component {
 
     render() {
         return (
-            <View>
+            <View style={Styles.container}>
                 <Text>Credit: {this.state.user.credit}</Text>
                 <Text>Depense d'aujourd'hui: {this.state.totalDepense}</Text>
                 <KeyboardAvoidingView>

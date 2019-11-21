@@ -12,7 +12,9 @@ export default class Inscription extends Component {
                 nom: "",
                 prenom: "",
                 email: "",
-                password: ""
+                password: "",
+                username: "",
+                dateN: "",
             }
         }
     }
@@ -25,13 +27,22 @@ export default class Inscription extends Component {
 
     render() {
         return (
-            <KeyboardAvoidingView>
+            <KeyboardAvoidingView style={Styles.container}>
+                 <View>
+                    <Text style={Styles.label}>Username</Text>
+                    <TextInput
+                        onChangeText={(text) => {this.setState({user: {username: text}});}}
+                        value={this.state.user.username}
+                        placeholder="Username"
+                        style={Styles.input}
+                    />
+                </View>
                 <View>
                     <Text style={Styles.label}>Nom</Text>
                     <TextInput
                         onChangeText={(text) => {this.setState({user: {nom: text}});}}
                         value={this.state.user.nom}
-                        placeholder="Nom..."
+                        placeholder="Nom"
                         style={Styles.input}
                     />
                 </View>
@@ -40,7 +51,16 @@ export default class Inscription extends Component {
                     <TextInput
                         onChangeText={(text) => {this.setState({user: {prenom: text}});}}
                         value={this.state.user.prenom}
-                        placeholder="Prenom..."
+                        placeholder="Prenom"
+                        style={Styles.input}
+                    />
+                </View>
+                <View>
+                    <Text style={Styles.label}>Date de Naissance</Text>
+                    <TextInput
+                        onChangeText={(text) => {this.setState({user: {dateN: text}});}}
+                        value={this.state.user.dateN}
+                        placeholder="Date de Naissance"
                         style={Styles.input}
                     />
                 </View>
@@ -49,7 +69,7 @@ export default class Inscription extends Component {
                     <TextInput
                         onChangeText={(text) => {this.setState({user: {email: text}});}}
                         value={this.state.user.email}
-                        placeholder="Email..."
+                        placeholder="Email"
                         style={Styles.input}
                         keyboardType="email-address"
                     />
@@ -59,7 +79,7 @@ export default class Inscription extends Component {
                     <TextInput
                         onChangeText={(text) => {this.setState({user: {password: text}});}}
                         value={this.state.password}
-                        placeholder="Mot de passe..."
+                        placeholder="Mot de passe"
                         secureTextEntry={true}
                         style={Styles.input}
                         autoCapitalize="none"

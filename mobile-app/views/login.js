@@ -23,13 +23,15 @@ export default class Login extends Component {
 
     render() {
         return (
+            
             <KeyboardAvoidingView style={Styles.container}>
+                
                 <View>
                     <Text style={Styles.label}>Email/Nom d'utilisateur</Text>
                     <TextInput
                         onChangeText={(text) => {this.setState({login: text});}}
                         value={this.state.login}
-                        placeholder="email/nom d'utilisateur..."
+                        placeholder="email/nom d'utilisateur"
                         style={Styles.input}
                         keyboardType="email-address"
                         autoCapitalize="none"
@@ -46,8 +48,9 @@ export default class Login extends Component {
                         autoCapitalize="none"
                     />
                 </View>
+                
                 <Text style={Styles.error}>{this.state.errorMessage}</Text>
-                <Button
+                <Button 
                     onPress={() => {
                         var logged = UserService.login(this.state.login, this.state.password);
                         if (logged) {
@@ -57,6 +60,7 @@ export default class Login extends Component {
                         }
                     }}
                     title="Connexion"
+                    style={styles.buttonStyle}
                 />
                 <Text
                     onPress={() => {this.props.navigation.push("Inscription")}}
