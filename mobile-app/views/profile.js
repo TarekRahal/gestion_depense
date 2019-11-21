@@ -1,12 +1,28 @@
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
+
+import Styles from '../styles/styles';
+
+export default class Profile extends Component {
+    render() {
+        return (
+            <View style={Styles.container}>
+                <Text>Vue Profile</Text>
+            </View>
+        )
+    }
+}
+
 /*import React from "react";
 import {
-StyleSheet,
-View,
-ActivityIndicator,
-FlatList,
-Text,
-TouchableOpacity
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  FlatList,
+  Text,
+  TouchableOpacity
 } from "react-native";
+<<<<<<<< HEAD:mobile-app/views/profile.js
 export default class Profile extends React.Component {
 static navigationOptions = ({ navigation }) => {
 return {
@@ -20,29 +36,45 @@ constructor(props) {
  this.state = {
    loading: true,
    dataSource:[]
+========
+
+export default class profileutilisateur extends React.Component {
+static navigationOptions = ({ navigation }) => {
+  return {
+    title: "Source Listing",
+    headerStyle: {backgroundColor: "#fff"},
+    headerTitleStyle: {textAlign: "center",flex: 1}
+>>>>>>>> 11ddb8ead13a0e71365f6ce1e42c43213ddd8372:mobile-app/views/profileutilisateur.js
   };
-}
-componentDidMount(){
-fetch("http://localhost:3300/users")
-.then(response => response.json())
-.then((responseJson)=> {
-  this.setState({
-   loading: false,
-   dataSource: responseJson
+};
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      dataSource:[]
+      };
+  }
+  componentDidMount(){
+  fetch("http://localhost:3300/users")
+  .then(response => response.json())
+  .then((responseJson)=> {
+    this.setState({
+    loading: false,
+    dataSource: responseJson
+    })
   })
-})
-.catch(error=>console.log(error)) //to catch the errors if any
-}
-FlatListItemSeparator = () => {
-return (
-  <View style={{
-     height: .5,
-     width:"100%",
-     backgroundColor:"rgba(0,0,0,0.5)",
-}}
-/>
-);
-}
+  .catch(error=>console.log(error)) //to catch the errors if any
+  }
+  FlatListItemSeparator = () => {
+    return (
+      <View style={{
+          height: .5,
+          width:"100%",
+          backgroundColor:"rgba(0,0,0,0.5)",
+        }}
+      />
+    );
+  }
 renderItem=(data)=>
 
 <TouchableOpacity style={styles.list}>
