@@ -96,16 +96,16 @@ export default UserService = {
     },
 
     validateLogin: async (email, password) => {
-        return fetch("https://localhost:3030/users/validateLogin", {
+        return fetch("https://localhost:3300/users/validateLogin", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: {
-                user: email,
+            body: JSON.stringify({
+                username: email,
                 password
-            }
+            })
         });
     },
 

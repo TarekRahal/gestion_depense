@@ -11,12 +11,10 @@ export default class Home extends Component {
         this.state = {
             user: UserService.getUserByEmail(this.props.navigation.getParam("email")),
             totalDepense: 0,
-            depenseAjoutee: {
-                categorie: "alimentation",
-                valeur: 0,
-                date: new Date(),
-                description: ""
-            }
+            categorie: "alimentation",
+            valeur: 0,
+            date: new Date(),
+            description: ""
         }
     }
 
@@ -42,7 +40,7 @@ export default class Home extends Component {
                         <Picker
                             selectedValue={this.state.depenseAjoutee.categorie}
                             onValueChange={(itemValue, itemIndex) => {
-                                this.setState({depenseAjoutee: {categorie: itemValue}});
+                                this.setState({categorie: itemValue});
                             }}
                             style={Styles.input}
                         >
@@ -55,7 +53,7 @@ export default class Home extends Component {
                     <View>
                         <Text style={Styles.label}>Valeur</Text>
                         <TextInput
-                            onChangeText={(text) => {this.setState({depenseAjoutee: {valeur: text}})}}
+                            onChangeText={(text) => {this.setState({valeur: text})}}
                             keyboardType="numeric"
                             placeholder="Valeur..."
                             style={Styles.input}
@@ -63,21 +61,22 @@ export default class Home extends Component {
                         />
                     </View>
                     <View>
-                        <Text style={Styles.label}>Date</Text>
-                        
-                    </View>
-                    <View>
                         <Text style={Styles.label}>Description</Text>
                         <TextInput
                             value={this.state.depenseAjoutee.description}
-                            onChangeText={(text) => {this.setState({depenseAjoutee: {description: text}})}}
+                            onChangeText={(text) => {this.setState({description: text})}}
                             placeholder="Description..."
                             style={Styles.input}
                         />
                     </View>
                     <Button
                         title="Ajouter Depense"
-                        onPress={() => {UserService.ajouterDepense(this.state.depenseAjoutee)}}
+                        onPress={() => {UserService.ajouterDepense({
+                            categorie: this.state.categorie,
+                            valeur: this.state.valeur,
+                            date: this.state.date,
+                            description: this.state.description
+                        })}}
                     />
                 </KeyboardAvoidingView>
             </View>
