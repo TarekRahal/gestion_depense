@@ -22,7 +22,7 @@ export default class Login extends Component {
     }
 
     login(email, password) {
-        this.UserService.validateLogin(email, password)
+        UserService.validateLogin(email, password)
         .then((response) => response.json)
         .then((responseJson) => {
             this.props.navigation.replace("Home", {user: responseJson}, null);
