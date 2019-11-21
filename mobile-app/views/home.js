@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView, Picker, Button } from 'react-native';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
 
 import UserService from '../services/user-service';
 

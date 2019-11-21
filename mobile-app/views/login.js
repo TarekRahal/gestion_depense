@@ -21,6 +21,14 @@ export default class Login extends Component {
         }
     }
 
+    login(email, password) {
+        this.UserService.validateLogin(email, password)
+        .then((response) => response.json)
+        .then((responseJson) => {
+            this.props.navigation.replace("Home", {user: responseJson}, null);
+        }).catch((error) => { this.setState({errorMessage: error})});
+    }
+
     render() {
         return (
             <KeyboardAvoidingView style={Styles.container}>
@@ -48,14 +56,7 @@ export default class Login extends Component {
                 </View>
                 <Text style={Styles.error}>{this.state.errorMessage}</Text>
                 <Button
-                    onPress={() => {
-                        var logged = UserService.login(this.state.login, this.state.password);
-                        if (logged) {
-                            this.props.navigation.navigate("HomeScreen", {email: this.state.login})
-                        } else {
-                            this.setState({errorMessage: "login ou mot de passe incorrecte"})
-                        }
-                    }}
+                    onPress={this.login(this.state.login, this.state.password)}
                     title="Connexion"
                 />
                 <Text
