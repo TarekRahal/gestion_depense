@@ -103,7 +103,7 @@ export default UserService = {
                 "Content-Type": "application/json"
             },
             body: {
-                username: email,
+                user: email,
                 password
             }
         });
