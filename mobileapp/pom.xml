@@ -43,7 +43,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 			<!--  daruria kayna erreur dial timezone f qlq version dial connector -->
-			<version>5.1.47</version>
+			<version>8.0.16</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
